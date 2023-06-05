@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import axios from "axios";
 
+const PERSON_KEY ='PersonKey'
 export const TodoList = () => {
 
   const [todos, setTodos] = useState([]);
@@ -48,8 +49,14 @@ export const TodoList = () => {
   
   const handleLogout = () => {
     // Clear token from localStorage
-    
+    localStorage.clear(PERSON_KEY, JSON.stringify(todos))
     // route user back to sign in page
+    navigate("/")
+        // Store token in localStorage
+      
+        
+      
+
     
   };
 
@@ -60,6 +67,9 @@ export const TodoList = () => {
       />
       <button onClick={handleAddTodo}>Add to your list</button>
       <h3>To do:</h3>
+      <input></input>
+      <button id="todo-item">Add</button>
+
       <ul id="todo-list">
         {/* Use map to return the todos here :) */}
       </ul>

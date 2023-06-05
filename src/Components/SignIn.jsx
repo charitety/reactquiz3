@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
+const PERSON_KEY ='PersonKey'
 export const SignIn = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -9,8 +11,9 @@ export const SignIn = () => {
 
   const handleLogin = async () => {
     // Store token in localStorage
-    
+    localStorage.setItem(PERSON_KEY, JSON.stringify(username))
     // Navigate user to home page
+    navigate("/Home")
   };
 
   return (
