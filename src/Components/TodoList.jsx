@@ -12,11 +12,12 @@ export const TodoList = () => {
   const navigate = useNavigate();
   
   // Set up the proper usage of useQuery hook
-  const usersQuery = useQuery();
+  const usersQuery = useQuery('/', async() => await axios.get());
 
   useEffect(() => {
     // Load todos (if any) from localStorage
-    
+
+    localStorage.setItem(PERSON_KEY, JSON.stringify(todos))
     // parse through the stored to-do's and set them in state
     
   }, []);
